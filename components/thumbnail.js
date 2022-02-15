@@ -1,10 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import { ThumbUpIcon } from "@heroicons/react/outline";
-const  Thumbnail=({ result })=> {
+import { motion } from "framer-motion";
+const Thumbnail = ({ result }) => {
   const Base_URL = "https://image.tmdb.org/t/p/original";
   return (
-    <div className="p-2 m-4 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 ">
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      className="p-2 m-4 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 "
+    >
       <Image
         layout="responsive"
         src={`${Base_URL}${result.backdrop_path}`}
@@ -24,7 +31,7 @@ const  Thumbnail=({ result })=> {
         <ThumbUpIcon className="h-5 mx-5" />
         {result.vote_count}
       </p>
-    </div>
+    </motion.div>
   );
-}
+};
 export default Thumbnail;

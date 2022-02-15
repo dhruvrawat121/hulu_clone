@@ -11,7 +11,9 @@ export default function Home({ results }) {
     <div>
       <Header />
       <Navbar />
-      <Results results={results} />
+      <div>
+        <Results results={results} />
+      </div>
     </div>
   );
 }
